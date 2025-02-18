@@ -4,81 +4,63 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyConverterWPF"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Wpf Currency Converter" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" >
+        Title="Wpf Currency Converter" Width="1040" Height="512" WindowStartupLocation="CenterScreen" >
     <!-- SizeToContent define que o tamanho se ajusta ao "tamanho" do conteúdo. -->
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="453*"/>
-            <ColumnDefinition Width="0*"/>
+
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="80"></RowDefinition>
-            <RowDefinition Height="150"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+
+
         </Grid.RowDefinitions>
 
 
-        <Border Grid.Row="2" Width="800" CornerRadius="10" BorderThickness="5" Grid.Column="1" Margin="6,0,100,0">
-            <Border.BorderBrush>
-                <!-- Border Brush como "pincel" da borda-->
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="#000080" Offset="0.0" />
-                    <GradientStop Color="#0000CD" Offset="0.50" />
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-            <Rectangle Grid.Row="2">
-                <Rectangle.Fill>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#000080" Offset="0.0" />
-                        <GradientStop Color="#0000CD" Offset="0.50" />
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-        </Border>
+        <Rectangle Grid.Column="0" Fill="#FEFEE3" Grid.RowSpan="4" />
+        <Rectangle Grid.Column="1" Fill="#2C6E49" Grid.RowSpan="4" />
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="50" Width="1000" VerticalAlignment="Center" Grid.ColumnSpan="2">
-            <Label Height="50" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Currency Converter" FontSize="25" Foreground="#ec2075" FontWeight="Bold"></Label>
+        <StackPanel Grid.Row="0" Grid.Column="0" Height="70" Width="400"   HorizontalAlignment="Left" Orientation="Horizontal" >
+            <fa:ImageAwesome Icon="Money" Height="18" Width="32" Foreground="#2C6E49"  Margin="20 0 0 0"/>
+            <Label FontSize="28" Content="Currency Converter" FontFamily="Segoe UI Bold" FontWeight="SemiBold" Height="51" Foreground="#2C6E49" />
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Height="80" Width="1000" Grid.ColumnSpan="2">
-            <Label Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Converted Currency" FontSize="20"></Label>
-            <Label Name="lblCurrency" Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></Label>
+        <StackPanel Grid.Row="1" Grid.Column="0" Height="100" Width="500"   HorizontalAlignment="Left" Orientation="Horizontal" >
+            <Label FontSize="28" Content="Digite o valor em" FontFamily="Segoe UI Bold" FontWeight="SemiBold" Height="51" Foreground="#2C6E49" Margin="20"/>
+            <ComboBox Name="cmbFromCurrency" Width="170" Height="30" Margin="0 0 0 0" FontSize="18" Foreground="#2C6E49" Background="Transparent" MaxDropDownHeight="150" SelectionChanged="cmbFromCurrency_SelectionChanged" >
+            </ComboBox>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="800" Grid.Column="1" Margin="6,0,0,0">
-            <Label Height="40" Width="150" Content="Enter Amount : " Margin="35 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
-            <Label Height="40" Width="150" Content="From : " Margin="110 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
-            <Label Height="40" Width="150" Content="To : " Margin="130 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
+        <StackPanel Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Width="520">
+            <Label FontSize="72" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="20 0 0 0" Height="100" Width="62">$</Label>
+            <StackPanel Width="430" Height="138" Orientation="Vertical" >
+                <TextBox FontSize="72" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent" >0,00</TextBox>
+                <Rectangle Fill="#2C6E49" Height="2" Width="450" />
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Height="90" Width="800" VerticalAlignment="Bottom" Grid.Column="1" Margin="6,0,0,0">
-            <TextBox Name="txtCurrency" Width="200" Height="30" Margin="40 0 0 0" PreviewTextInput="NumberValidationTextBox" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top"></TextBox>
-            <ComboBox Name="cmbFromCurrency" Width="170" Height="30" Margin="60 0 40 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxDropDownHeight="150"></ComboBox>
-            <!--<fa:ImageAwesome Icon="Exchange" Height="30" Width="30" Foreground="White" VerticalAlignment="Top"></fa:ImageAwesome>-->
-            <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="40 0 0 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxDropDownHeight="150"></ComboBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Height="100" Width="500"   HorizontalAlignment="Left" Orientation="Horizontal" >
+            <Label FontSize="28" Content="Esse é o valor em" FontFamily="Segoe UI Bold" FontWeight="SemiBold" Height="51" Foreground="#FEFEE3" Margin="20"/>
+            <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="0 0 0 0" FontSize="18" Foreground="#2C6E49"  MaxDropDownHeight="150" SelectionChanged="cmbFromCurrency_SelectionChanged" >
+            </ComboBox>
         </StackPanel>
-        <StackPanel Grid.Row="3" Height="100" Width="1000" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <Button Name="Convert" Height="40" Width="150" Content="Convert" Click="Convert_Click" Margin="350 0 20 0" Foreground="White" FontSize="20">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#000080" Offset="0.0"/>
-                        <GradientStop Color="#0000CD" Offset="0.5"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button Name="Clear" Height="40" Width="150" Content="Clear" Click="Clear_Click" Foreground="White" FontSize="20">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#000080" Offset="0.0"/>
-                        <GradientStop Color="#0000CD" Offset="0.5"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+
+
+        <StackPanel Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Width="520">
+            <Label FontSize="72" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="20 0 0 0" Height="100" Width="62">$</Label>
+            <StackPanel Width="430" Height="138" Orientation="Vertical" >
+                <TextBox FontSize="72" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent" >0,00</TextBox>
+                <Rectangle Fill="#FEFEE3" Height="2" Width="450" />
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="4" Height="150" Width="800" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="1" Margin="6,0,0,0">
-            <Image Height="150" Width="150"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="325 0"/>
-        </StackPanel>
+
+
+
     </Grid>
 </Window>
