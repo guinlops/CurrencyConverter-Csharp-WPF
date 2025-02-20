@@ -161,7 +161,7 @@ namespace CurrencyConverterWPF
             cmbToCurrency.SelectedValuePath = "Rate";
             cmbToCurrency.SelectedIndex = 0;
 
-            TextBox_Converted.Text = string.Empty;
+            TextBox_Converted.Text = "0,00";
             CurrencyFromIndex.Content = "";
             CurrencyToIndex.Content = "";
         }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CurrencyConverterWPF"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Wpf Currency Converter" Width="1040" Height="512" WindowStartupLocation="CenterScreen" >
+        Title="Wpf Currency Converter" Width="1040" Height="548" WindowStartupLocation="CenterScreen" >
     <!-- SizeToContent define que o tamanho se ajusta ao "tamanho" do conteúdo. -->
     <Grid>
         <Grid.ColumnDefinitions>
@@ -41,7 +41,7 @@
         <StackPanel Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Width="520">
             <Label Name="CurrencyFromIndex"  FontSize="52" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="20 30 0 0" Height="81" Width="116"></Label>
             <StackPanel Width="430" Height="138" Orientation="Vertical" >
-                <TextBox Name="TextBoxFrom" TextChanged="TextBoxFromChanged" FontSize="72" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent" >0,00</TextBox>
+                <TextBox Name="TextBoxFrom" TextChanged="TextBoxFromChanged" FontSize="72" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0">0,00</TextBox>
                 <Rectangle Fill="#2C6E49" Height="2" Width="450" />
             </StackPanel>
         </StackPanel>
@@ -56,7 +56,7 @@
         <StackPanel Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Width="520">
             <Label Name="CurrencyToIndex"  FontSize="52" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="20 30 0 0" Height="81" Width="116"></Label>
             <StackPanel Width="430" Height="138" Orientation="Vertical" >
-                <TextBox Name="TextBox_Converted" FontSize="72" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent"  IsReadOnly="True"  >0,00</TextBox>
+                <TextBox Name="TextBox_Converted" FontSize="72" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent"  BorderThickness="0"  IsReadOnly="True"  >0,00</TextBox>
                 <Rectangle Fill="#FEFEE3" Height="2" Width="450" />
             </StackPanel>
         </StackPanel>
