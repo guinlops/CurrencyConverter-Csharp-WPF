@@ -20,6 +20,7 @@
             <RowDefinition Height="150"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
 
 
         </Grid.RowDefinitions>
@@ -29,8 +30,8 @@
         <Rectangle Grid.Column="1" Fill="#2C6E49" Grid.RowSpan="4" />
 
         <StackPanel Grid.Row="0" Grid.Column="0" Height="70" Width="400"   HorizontalAlignment="Left" Orientation="Horizontal" >
-            <fa:ImageAwesome Icon="Money" Height="18" Width="32" Foreground="#2C6E49"  Margin="20 0 0 0"/>
-            <Label FontSize="28" Content="Currency Converter" FontFamily="Segoe UI Bold" FontWeight="SemiBold" Height="51" Foreground="#2C6E49" />
+            <fa:ImageAwesome Icon="Money" Height="17" Width="32" Foreground="#2C6E49"  Margin="20 0 0 0"/>
+            <Label FontSize="28" Content="Currency Converter" FontFamily="Segoe UI Bold" FontWeight="SemiBold" Height="54" Foreground="#2C6E49" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Height="100" Width="500"   HorizontalAlignment="Left" Orientation="Horizontal" >
             <Label FontSize="28" Content="Digite o valor em" FontFamily="Segoe UI Bold" FontWeight="SemiBold" Height="51" Foreground="#2C6E49" Margin="20"/>
@@ -38,27 +39,32 @@
             </ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Width="520">
-            <Label FontSize="72" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="20 0 0 0" Height="100" Width="62">$</Label>
+            <Label Name="CurrencyFromIndex"  FontSize="52" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="20 30 0 0" Height="81" Width="116"></Label>
             <StackPanel Width="430" Height="138" Orientation="Vertical" >
-                <TextBox FontSize="72" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent" >0,00</TextBox>
+                <TextBox Name="TextBoxFrom" TextChanged="TextBoxFromChanged" FontSize="72" FontFamily="Segoe UI Bold" Foreground="#2C6E49" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent" >0,00</TextBox>
                 <Rectangle Fill="#2C6E49" Height="2" Width="450" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Height="100" Width="500"   HorizontalAlignment="Left" Orientation="Horizontal" >
             <Label FontSize="28" Content="Esse é o valor em" FontFamily="Segoe UI Bold" FontWeight="SemiBold" Height="51" Foreground="#FEFEE3" Margin="20"/>
-            <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="0 0 0 0" FontSize="18" Foreground="#2C6E49"  MaxDropDownHeight="150" SelectionChanged="cmbFromCurrency_SelectionChanged" >
+            <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="0 0 0 0" FontSize="18" Foreground="#2C6E49"  MaxDropDownHeight="150" SelectionChanged="cmbToCurrency_SelectionChanged" >
             </ComboBox>
         </StackPanel>
 
 
         <StackPanel Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Width="520">
-            <Label FontSize="72" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="20 0 0 0" Height="100" Width="62">$</Label>
+            <Label Name="CurrencyToIndex"  FontSize="52" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="20 30 0 0" Height="81" Width="116"></Label>
             <StackPanel Width="430" Height="138" Orientation="Vertical" >
-                <TextBox FontSize="72" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent" >0,00</TextBox>
+                <TextBox Name="TextBox_Converted" FontSize="72" FontFamily="Segoe UI Bold" Foreground="#FEFEE3" Margin="0 20 0 0" Height="94" HorizontalAlignment="Left" Background="Transparent"  IsReadOnly="True"  >0,00</TextBox>
                 <Rectangle Fill="#FEFEE3" Height="2" Width="450" />
             </StackPanel>
         </StackPanel>
+        <Button Grid.Column="1" Grid.Row="3" Width="100" Height="30" Margin="200 0 0 0" Background="#FEFEE3" Click="Reset_Button" >
+
+            <Label FontSize="12" FontFamily="Segoe UI Bold"   Foreground="#2C6E49">Reset</Label>
+        </Button>
+
 
 
 
